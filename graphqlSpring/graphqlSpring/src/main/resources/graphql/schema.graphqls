@@ -1,0 +1,23 @@
+
+
+type Query{
+
+	participants : [Participant]
+
+}
+
+
+type Participant{
+
+	Id: ID!
+	name: String
+	contact: String
+	transactions: [Transaction]
+}
+
+type Transaction{
+
+	trnsxnId: ID
+	receiver: String
+	participant: Participant
+}

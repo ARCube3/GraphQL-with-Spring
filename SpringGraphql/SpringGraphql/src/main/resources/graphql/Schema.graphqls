@@ -1,0 +1,35 @@
+type Query{
+	participants: [Participant]
+	participantById(id: ID!): Participant
+}
+
+type Mutation{
+	addTransaction(transaction: TransactionInput): Transaction
+	addParticipant(participant: ParticipantInput): Participant
+}
+
+input TransactionInput{
+	amount: Int!
+	receiver: String
+	participantId: ID!
+}
+
+input ParticipantInput{
+	name: String!
+	contact: String
+}
+	
+
+type Participant{
+	id: ID!
+	name: String!
+	contact: String
+	transactions: [Transaction]
+} 
+
+type Transaction{
+	id: ID!
+	receiver: String
+	amount: Int!
+	participant: Participant
+}
